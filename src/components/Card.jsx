@@ -1,14 +1,13 @@
-const Card = () => {
+const Card = (props) => {
+
     return (
-        <div className="drop-shadow-md">
-            <div>
-                <img className="rounded-t-lg" src="https://flagcdn.com/al.svg" alt="Afghanistan flag"/>
-            </div>
+        <div className="drop-shadow-md grid items-stretch">
+            <img className="rounded-t-lg object-cover" src={props.img} alt={`${props.name} flag`}/>
             <div className="bg-white text-base rounded-b-md p-6">
-                <h3 className="Nunito text-xl mb-6 font-extrabold">Afghanistan</h3>
-                <p className="Nunito">Population: 1234</p>
-                <p className="Nunito">Region: Asia</p>
-                <p className="Nunito">Capital: Kabul</p>
+                <h3 className="Nunito text-xl mb-6 font-extrabold">{`${props.name}`}</h3>
+                <p className="Nunito">Population: {`${props.population}`}</p>
+                <p className="Nunito">Region: {`${props.region}`}</p>
+                <p className="Nunito">Capital: {`${props.capital}`}</p>
             </div>
         </div>
     );
