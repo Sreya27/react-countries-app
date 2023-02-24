@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <header className="flex justify-between p-7 shadow-lg">
+        <header className="flex justify-between py-8 px-16 shadow-lg">
             <h2 className="font-Nunito font-extrabold text-3xl">Where in the World?</h2>
             <button className="flex space-x-2">
                 <svg viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 fill-none stroke-current stroke-1 mx-0">

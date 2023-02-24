@@ -7,7 +7,7 @@ const Input = (props) => {
     };
 
     return (
-        <div className="p-8 grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1">
+        <div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1">
             <form className="drop-shadow-md h-10 w-auto xl:w-1/2 2xl:w-1/2 p-2 rounded-md bg-white">
                 <input className="w-full" type="text" placeholder="Search for a Country..."></input>
             </form>
