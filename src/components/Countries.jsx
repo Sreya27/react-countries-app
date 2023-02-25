@@ -7,7 +7,7 @@ const Countries = (props) => {
     useEffect(() => {
         try{
         const getCountriesData = async () => {
-            const response = await fetch(`https://restcountries.com/v3.1/region/${props.selectedRegion}?fields=name,population,region,capital,flags,borders,cca3`);
+            const response = await fetch(`https://restcountries.com/v3.1/region/${props.selectedRegion}?fields=name,population,region,capital,flags,borders,cca3,currency,lang,subregion,tld`);
             const responseData = await response.json();
             setCountriesData(responseData);
         }
