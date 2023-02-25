@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Error from "./components/Error";
 import Home from "./components/Home";
 import SelectedCountryPage from "./components/SelectedCountryPage";
-import data from "./components/data/data.json";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
 
