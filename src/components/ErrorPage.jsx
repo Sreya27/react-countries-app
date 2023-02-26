@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 
-const Error = () => {
+const ErrorPage = (props) => {
     return (
         <Fragment>
             <h1 className="Nunito text-5xl font-extrabold text-center">Error 404!</h1>
-            <p className="Nunito text-3xl font-semibold text-center">Page not found</p>
+            <p className="Nunito text-3xl font-semibold text-center">Page Not found</p>
         </Fragment>
     );
 };
 
-export default Error;
+export default ErrorPage;
