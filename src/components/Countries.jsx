@@ -1,28 +1,42 @@
 import { Fragment, useEffect,useState } from "react";
 import Card from "./Card";
+import ErrorPage from "./ErrorPage";
 
 const Countries = (props) => {
     const [countriesData, setCountriesData] = useState([]);
-    
-    useEffect(() => {
-        try{
-        const getCountriesData = async () => {
-            const response = await fetch(`https://restcountries.com/v3.1/region/${props.selectedRegion}?fields=name,population,region,capital,flags,borders,cca3,currency,lang,subregion,tld`);
+    const [flag,setFlag] = useState(true);
+
+    const fieldsRequired = "fields=name,population,region,capital,flags,borders,cca3,currency,lang,subregion,tld";
+    const domain = "https://restcountries.com/v3.1";
+    const url = (props.selectedCountry)? domain+`/name/${props.selectedCountry}?`+fieldsRequired : domain+`/region/${props.selectedRegion}?`;
+
+    const getCountriesData = async () => {
+        try 
+        {
+            const response = await fetch(url);
+            if(!response.ok)
+            {
+                throw new Error("Failed");
+            }
+            setFlag(true);
             const responseData = await response.json();
             setCountriesData(responseData);
         }
-        getCountriesData();
-        }catch(error)
+        catch(error)
         {
-        console.trace(error);
+            setFlag(false);
         }
-    }, [props.selectedRegion]);
+    }
+    
+    useEffect(() => {
+        getCountriesData();
+    }, [props.selectedRegion,props.selectedCountry]);
 
     return (
         <Fragment>
-            {countriesData.map((countryObject) => {
-            return <Card key={countryObject.cca3} name={countryObject.name.common} population={countryObject.population} region={countryObject.region} capital={countryObject.capital} img={countryObject.flags.svg}></Card>
-            })}
+            {flag? countriesData.map((countryObject) => {
+                    return <Card key={countryObject.cca3} name={countryObject.name.common} population={countryObject.population} region={countryObject.region} capital={countryObject.capital} img={countryObject.flags.svg}></Card>
+            }) : <ErrorPage/>}
         </Fragment>
     );
 };
