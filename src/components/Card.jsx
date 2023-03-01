@@ -6,9 +6,7 @@ const Card = ({countryObject}) => {
 
     const {setCountryObject} = useContext(CountryContext);
 
-    const handleClick = (event) => {
-        console.log(event.target.innerHTML);
-        console.log(countryObject);
+    const handleClick = () => {
         setCountryObject(countryObject);
     }
 
