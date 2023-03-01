@@ -1,8 +1,6 @@
 const Country = (props) => {
 
     const {name, region, capital, currencies, population, subregion, tld, languages, flags} = props.countryObject;
-
-    console.log(currencies);
     
     const renderList = (arr, flag) => {
         switch (flag) {
