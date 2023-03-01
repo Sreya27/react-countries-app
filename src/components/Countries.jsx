@@ -6,9 +6,9 @@ const Countries = (props) => {
     const [countriesData, setCountriesData] = useState([]);
     const [flag,setFlag] = useState(true);
 
-    const fieldsRequired = "fields=name,population,region,capital,flags,borders,cca3,currency,lang,subregion,tld";
+    const fieldsRequired = "fields=name,population,region,capital,flags,borders,cca3,currencies,languages,subregion,tld";
     const domain = "https://restcountries.com/v3.1";
-    const url = (props.selectedCountry)? domain+`/name/${props.selectedCountry}?`+fieldsRequired : domain+`/region/${props.selectedRegion}?`;
+    const url = (props.selectedCountry)? domain+`/name/${props.selectedCountry}?fullText=true&`+fieldsRequired : domain+`/region/${props.selectedRegion}?`+fieldsRequired;
 
     const getCountriesData = async () => {
         try 
@@ -35,7 +35,7 @@ const Countries = (props) => {
     return (
         <Fragment>
             {flag? countriesData.map((countryObject) => {
-                    return <Card key={countryObject.cca3} name={countryObject.name.common} population={countryObject.population} region={countryObject.region} capital={countryObject.capital} img={countryObject.flags.svg}></Card>
+                    return <Card key={countryObject.cca3} countryObject={countryObject}></Card> 
             }) : <ErrorPage/>}
         </Fragment>
     );

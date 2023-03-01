@@ -1,19 +1,27 @@
-const Card = (props) => {
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CountryContext from "../context/CountryContext";
 
-    const handleClick = () => {
-        props.onClick(props);
+const Card = ({countryObject}) => {
+
+    const {setCountryObject} = useContext(CountryContext);
+
+    const handleClick = (event) => {
+        console.log(event.target.innerHTML);
+        console.log(countryObject);
+        setCountryObject(countryObject);
     }
 
     return (
-        <div onClick={handleClick} className="drop-shadow-md grid items-stretch">
-            <img className="rounded-t-lg object-cover" src={props.img} alt={`${props.name} flag`}/>
-            <div className="bg-white text-base rounded-b-md p-6">
-                <h3 className="Nunito text-xl mb-6 font-extrabold">{`${props.name}`}</h3>
-                <p className="Nunito">Population: {`${props.population}`}</p>
-                <p className="Nunito">Region: {`${props.region}`}</p>
-                <p className="Nunito">Capital: {`${props.capital}`}</p>
+            <div className="drop-shadow-md grid items-stretch">
+                <img className="rounded-t-lg object-cover" src={countryObject.flags.svg} alt={`${countryObject.name.common} flag`}/>
+                <div className="bg-white text-base rounded-b-md p-6">
+                    <Link onClick={handleClick} to={`/${countryObject.name.common}`}><h3 className="Nunito text-xl mb-6 font-extrabold">{`${countryObject.name.common}`}</h3></Link>
+                    <p className="Nunito">Population: {`${countryObject.population}`}</p>
+                    <p className="Nunito">Region: {`${countryObject.region}`}</p>
+                    <p className="Nunito">Capital: {`${countryObject.capital}`}</p>
+                </div>
             </div>
-        </div>
     );
 }
 
