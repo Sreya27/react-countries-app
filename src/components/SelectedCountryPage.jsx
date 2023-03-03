@@ -9,12 +9,12 @@ const SelectedCountryPage = () => {
 
     return (
         <Fragment>
-            <section className="bg-gray-50 p-16 sm:p-8 md:p-8">
+            <section className="bg-primary p-16 sm:p-8 md:p-8">
                 <BackButton/>
             </section>
-            <section className="bg-gray-50 p-16 sm:p-8 md:p-8">
+            <main className="bg-primary p-16 sm:p-8 md:p-8">
                 <Country countryObject={countryObject}/>
-            </section>
+            </main>
         </Fragment>
     );
 };

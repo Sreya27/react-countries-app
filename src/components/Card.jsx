@@ -11,9 +11,9 @@ const Card = ({countryObject}) => {
     }
 
     return (
-            <div className="drop-shadow-md grid items-stretch">
+            <div className="bg-secondary drop-shadow-md grid items-stretch">
                 <img className="rounded-t-lg object-cover" src={countryObject.flags.svg} alt={`${countryObject.name.common} flag`}/>
-                <div className="bg-white text-base rounded-b-md p-6">
+                <div className="bg-secondary text-text-color text-base rounded-b-md p-6">
                     <Link onClick={handleClick} to={`/${countryObject.name.common}`}><h3 className="Nunito text-xl mb-6 font-extrabold">{`${countryObject.name.common}`}</h3></Link>
                     <p className="Nunito">Population: {`${countryObject.population}`}</p>
                     <p className="Nunito">Region: {`${countryObject.region}`}</p>

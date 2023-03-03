@@ -5,7 +5,13 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "var(--color-bg-primary)",
+        secondary: "var(--color-bg-secondary)",
+        "text-color": "var(--color-text)",
+      },
+    },
 
     fontFamily: {
       Nunito: ["Nunito Sans"]
