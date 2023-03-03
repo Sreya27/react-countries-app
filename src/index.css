@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark {
+    --color-bg-primary: hsl(207, 26%, 17%);
+    --color-bg-secondary: hsl(209, 23%, 22%);
+    --color-text: hsl(0, 0%, 100%);
+}
+
+.light {
+    --color-bg-primary: hsl(0, 0%, 98%);
+    --color-bg-secondary: hsl(0, 0%, 100%);
+    --color-text: hsl(200, 15%, 8%);
+}
