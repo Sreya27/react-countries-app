@@ -12,7 +12,7 @@ const SelectedCountryPage = () => {
             <section className="bg-primary p-16 sm:p-8 md:p-8">
                 <BackButton/>
             </section>
-            <main className="bg-primary p-16 sm:p-8 md:p-8">
+            <main className="h-screen bg-primary p-16 sm:p-8 md:p-8">
                 <Country countryObject={countryObject}/>
             </main>
         </Fragment>
